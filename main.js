@@ -56,7 +56,14 @@ function writeToDocument(url) {
             });
             tableRows.push(`<tr>${dataRow}</tr>`);
         });
+        
+        
         pg.innerHTML = `${pagination}`;
+        
+        if(pg.innerHTML == 'undefined') {
+            pg.innerHTML = "";
+        }
+        
         el.innerHTML = `<table class="table table-condensed table-striped table-responsive table-hover">${tableHeaders}${tableRows}</table>`.replace(/,/g, "");
     });
 }
