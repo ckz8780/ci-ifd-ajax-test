@@ -15,7 +15,7 @@ function getTableHeaders(obj) {
     var tableHeaders = [];
 
     Object.keys(obj).forEach(function(key) {
-        tableHeaders.push(`<td>${key}</td>`);
+        tableHeaders.push(`<th>${key}</th>`);
     });
 
     return `<tr>${tableHeaders}</tr>`;
@@ -23,18 +23,19 @@ function getTableHeaders(obj) {
 
 function generatePaginationButtons(next, prev) {
     if (next && prev) {
-        return `<button onclick="writeToDocument('${prev}')">Previous</button>
-                <button onclick="writeToDocument('${next}')">Next</button>`;
+        return `<button class="btn btn-lg btn-primary" onclick="writeToDocument('${prev}')">Previous</button>
+                <button class="btn btn-lg btn-primary" onclick="writeToDocument('${next}')">Next</button>`;
     } else if (next && !prev) {
-        return `<button onclick="writeToDocument('${next}')">Next</button>`;
+        return `<button class="btn btn-lg btn-primary" onclick="writeToDocument('${next}')">Next</button>`;
     } else if (!next && prev) {
-        return `<button onclick="writeToDocument('${prev}')">Previous</button>`;
+        return `<button class="btn btn-lg btn-primary" onclick="writeToDocument('${prev}')">Previous</button>`;
     }
 }
 
 function writeToDocument(url) {
     var tableRows = [];
     var el = document.getElementById("data");
+    var pg = document.getElementById('pagination');
 
     getData(url, function(data) {
         var pagination;
@@ -55,7 +56,7 @@ function writeToDocument(url) {
             });
             tableRows.push(`<tr>${dataRow}</tr>`);
         });
-
-        el.innerHTML = `<table>${tableHeaders}${tableRows}</table>${pagination}`.replace(/,/g, "");
+        pg.innerHTML = `${pagination}`;
+        el.innerHTML = `<table class="table table-condensed table-striped table-responsive table-hover">${tableHeaders}${tableRows}</table>`.replace(/,/g, "");
     });
 }

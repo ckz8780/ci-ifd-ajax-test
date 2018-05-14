@@ -4,16 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="main.js"></script>
     <title>AJAX Test</title>
 </head>
 <body>
-    <button onclick="writeToDocument('https://swapi.co/api/people')">People</button>
-    <button onclick="writeToDocument('https://swapi.co/api/planets')">Planets</button>
-    <button onclick="writeToDocument('https://swapi.co/api/species')">Species</button>
-    <button onclick="writeToDocument('https://swapi.co/api/starships')">Starship</button>
-    <button onclick="writeToDocument('https://swapi.co/api/vehicles')">Vehicles</button>
-    <button onclick="writeToDocument('https://swapi.co/api/films')">Films</button>
-    <div id="data"></div>
+    <div class="container-fluid">
+        <div class="row text-center" id="button-row">
+            <div class="col-xs-12">
+                <h1>Click to call the Star Wars API!</h1>
+                <button class="btn btn-lg btn-success" onclick="writeToDocument('https://swapi.co/api/people')">People</button>
+                <button class="btn btn-lg btn-success" onclick="writeToDocument('https://swapi.co/api/planets')">Planets</button>
+                <button class="btn btn-lg btn-success" onclick="writeToDocument('https://swapi.co/api/species')">Species</button>
+                <button class="btn btn-lg btn-success" onclick="writeToDocument('https://swapi.co/api/starships')">Starship</button>
+                <button class="btn btn-lg btn-success" onclick="writeToDocument('https://swapi.co/api/vehicles')">Vehicles</button>
+                <button class="btn btn-lg btn-success" onclick="writeToDocument('https://swapi.co/api/films')">Films</button>
+            </div>
+        </div>
+        <div class="row" id="table-row">
+            <div class="col-xs-12">
+                <div id="data"></div>
+            </div>
+        </div>
+        <div class="row text-center" id="pg-row">
+            <div class="col-xs-12">
+                <div id="pagination"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

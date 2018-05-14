@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+#button-row, #table-row, #pg-row {
+    margin-bottom: 30px;
+}
+
+#table-row {
+    max-width: 100%;
+    overflow-y: scroll;
+}
